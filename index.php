@@ -17,14 +17,37 @@
 		$str .= "programming";var_dump($str);
 		$arr[2] = "second array"; var_dump($arr);
 		//local variable
+		/*
 		function varFunc(){
 			$var = 10;
 			echo "inside variable var is {$var}.<br>";
 		}
 		varFunc();
 		echo "outside variable var is {$var}";
+		*/
 		//global variable
 		$var = 10;
+		function varFunc(){
+			echo "inside function global variable is {$var}";//출력값 없음
+			global $var;
+			echo "inside function global variable is {$var}";//global로 변수 호출해줘야지 출력
+			echo "inside function GLOBALS variable is {$GLOBALS['var']}";// 
+			
+			
+		}
+		varFunc();
+		echo "outside variable var is {$var}";
+	
+		//static variable
+		function counter(){
+			static $count = 0;
+			echo " call inside function static variable count is {$count}";
+			$count++;
+		}
+	
+		counter();
+		counter();
+		counter();
 	?>
 </body>
 </html>
