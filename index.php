@@ -68,9 +68,9 @@
 		echo PHP;
 		*/
 		//magic constants
-		echo "<pre>";
-		print_r(get_defined_constants(true));
-		echo "</pre>"
+		//echo "<pre>";
+		//print_r(get_defined_constants(true));
+		//echo "</pre>"
 		/*
 		__LINE__	파일의 현재 줄 번호를 반환함.
 		__FILE__	파일의 전체 경로와 이름을 반환함. include 내부에서 사용할 경우 include된 파일명을 반환함.
