@@ -1,17 +1,37 @@
 <?php
-  //logical operator
-	/*
-	A	B	A and B (A && B)	A or B (A || B)	A xor B	!A
-	true	true	true	true	false	false
-	true	false	false	true	true	false
-	false	true	false	true	true	true
-	false	false	false	false	false	true
-	*/
-	
-	$num_01 =  true;
-	$num_02 = false;
-	var_dump($num_01 and $num_02);//false
-	var_dump($num_01 or $num_02);//true
-	var_dump($num_01 xor $num_02);//둘다 트루거나 둘다 false이면 true반환
-	var_dump((3<5) or ("12" > 20));//true
+//if
+$num_01 = 10;
+$num_02 = 11;
+
+    if($num_01 == $num_02){
+        echo "{$num_01} same {$num_02}";
+    }
+    else if($num_01 < $num_02){
+        echo "{$num_01} < {$num_02}";
+    }
+    else if($num_01 > $num_02){
+        echo "{$num_01} > {$num_02}";
+    }
+
+
+    $var = "귤";
+    switch ($var) {
+        case "귤":
+            echo "this is korea orange";
+            break;
+        case "사과":
+        case "바나나":
+        case "아보카도":
+            echo "여기 있는 과일은 제가 먹어본 과일입니다.";
+            break;
+        case "파파야":
+        case "두리안":
+        case "석가":
+            echo "여기 있는 과일은 제가 먹어보지 못한 과일입니다.";
+            break;
+        default:
+            echo "여기 있는 것은 과일이 아닙니다.";
+            break;
+}
+
 ?>
