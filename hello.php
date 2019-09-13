@@ -1,30 +1,19 @@
 <?php
-    //multidimensional array
+    //assoviative array
 
-    //2차원 배열
-    $arr = array(
-        array(),
-        array(),
-        array()
-    );
+    //인덱스를 숫자가 아니라 문자로도 사용할 수 있다
+    $array = array();
 
-    /*
-    $arr = array(
-        array("apple", "korea", "1000"),
-        array("banana", "philoppines",2000s),
-        array()
-    );
+    $array["apple"] = 1000;
+    $array["banana"] = 2000;
+    $array["orange"] = 3000;
 
-    */
-    $arr[0][0] = "apple";
-    $arr[0][1] = "korea";
-    $arr[0][2] = "1000";
+    //array[key] = value
+    //배열 선언과 동시에 초기화
+    $array2 = array("apple" => 1000, "banana" => 2000);
+    echo $array2["apple"].",".$array2["banana"];
 
-    $arr[1][0] = "banana";
-    $arr[1][1] = "philippines";
-    $arr[1][2] = 2000;
-
-
-    echo $arr[0][0].", ".$arr[0][1].", ".$arr[0][2]."<br>";
-    echo $arr[1][0].", ".$arr[1][1].", ".$arr[1][2]."<br>";
+    foreach($array as $key => $value){
+        echo $key."".$value;
+    }
 ?>
