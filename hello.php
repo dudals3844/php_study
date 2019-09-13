@@ -1,15 +1,24 @@
 <?php
-//while do.while
-
-    $i = 0;
-    while ($i < 5) {
-        echo($i++)."<br>";
+    //continue break
+    $excepNum = 4;
+    for ($i = 0; $i < 100; $i++){
+        if($i = 0 % $excepNum == 0){
+            continue;
+        }
+        echo "{$i} ";
     }
 
-    $j = 0;
+    $sum = 0;
+    $startNum = 1;
+    $endNum = 100;
+    $i = $startNum;
+    while(true){
+        $sum += $i;
+        if($i == $endNum){
+            break;
+        }
+        $i++;
+    }
 
-    do {
-        echo "variable j is ".(++$j)." ";
-    }while($j > 5);
-    //한번은 실행됨
+    echo "{$startNum}  {$endNum}  {$sum}" ;
 ?>
