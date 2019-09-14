@@ -1,56 +1,24 @@
 <?php
     //http://tcpschool.com/php/php_function_basic 공부하는 사이트
-    //parameter argument
+    //variable
 
-    //using function
+    //variable type change
+    $x = 5;
+    echo gettype($x);
 
-    $makefunc = true;
+    settype($x, "string");
+    echo gettype($x);
 
-    if($makefunc) {
-        function func() {
-            echo "now use function";
+    //variable status change
+    $var;
+    var_dump(isset($var));
+    var_dump(empty($var));
 
-        }
-        func();
-        //함수를 호출할 수 있습니다.
-
-    }
-
-    //function within function
-
-    function out(){
-        function in(){
-            echo "now availible using function";
-        }
-    }
-
-    out();
-    in();
-
-    //recursive function
-
-    function factorial($num){
-        if($num > 1){
-            return $num*factorial($num-1);
-        } else {
-            return 1;
-        }
-    }
-    echo factorial(4);
+    $x = "123.41abc";
+    echo intval($x);
+    echo floatval($x);
+    echo strval($x);
 
 
-    //variable function
-    function first(){
-        echo " first function ";
-    }
 
-    function second($para){
-        echo " second function ";
-        echo " variable is {$para} ";
-    }
-
-    $func = "first";
-    $func();
-    $func = "second";
-    $func(20);
 ?>
