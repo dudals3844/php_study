@@ -1,19 +1,56 @@
 <?php
-    //assoviative array
+    //http://tcpschool.com/php/php_function_basic 공부하는 사이트
+    //parameter argument
 
-    //인덱스를 숫자가 아니라 문자로도 사용할 수 있다
-    $array = array();
+    //using function
 
-    $array["apple"] = 1000;
-    $array["banana"] = 2000;
-    $array["orange"] = 3000;
+    $makefunc = true;
 
-    //array[key] = value
-    //배열 선언과 동시에 초기화
-    $array2 = array("apple" => 1000, "banana" => 2000);
-    echo $array2["apple"].",".$array2["banana"];
+    if($makefunc) {
+        function func() {
+            echo "now use function";
 
-    foreach($array as $key => $value){
-        echo $key."".$value;
+        }
+        func();
+        //함수를 호출할 수 있습니다.
+
     }
+
+    //function within function
+
+    function out(){
+        function in(){
+            echo "now availible using function";
+        }
+    }
+
+    out();
+    in();
+
+    //recursive function
+
+    function factorial($num){
+        if($num > 1){
+            return $num*factorial($num-1);
+        } else {
+            return 1;
+        }
+    }
+    echo factorial(4);
+
+
+    //variable function
+    function first(){
+        echo " first function ";
+    }
+
+    function second($para){
+        echo " second function ";
+        echo " variable is {$para} ";
+    }
+
+    $func = "first";
+    $func();
+    $func = "second";
+    $func(20);
 ?>
