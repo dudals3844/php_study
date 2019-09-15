@@ -1,61 +1,71 @@
 <?php
     //http://tcpschool.com/php/php_function_basic 공부하는 사이트
-    //array function
-    $arr = array(1,5,7,3,3,1,2);
+    //String function
+    $str = "12345678";
+    echo strlen($str);
 
-    echo "array number is ".count($arr)." ";
-    echo "array number is ".sizeof($arr)." ";
+    $str1 = "한글 문자열";
+    echo strlen($str1);
+    //echo mb_strlen($str1);
+    //echo mb_strlen($str1, "UTF-8");
 
-    $acv = array_count_values($arr);
+    //Compare string
+    echo strcmp("abc","ABC");
+    echo strcasecmp("abc","ABC");
+    echo strcmp("2","10");
+    echo strnatcmp("2","10");
 
-    $element = current($arr);
-    while($element){
-        echo $element;
-        $element = next($arr);
+    //search string
+    echo strstr("ABCabcDEFabc","abc");
+    echo strrchr("ABCabcDEFabc","abc");
+    echo stristr("ABCabcDEFabc","abc");
 
+    //location string
+    echo strstr("ABCabcDEFabc","abc");
+    echo strrchr("ABCabcDEFabc","abc");
+    echo stristr("ABCabcDEFabc","abc");
+
+    //location string return index number
+    echo strpos("ABCabcDEFabc","abc");//abc나오는 첫번째 인덱스 숫자
+    echo strrpos("ABCabcDEFabc","abc");//abc나오는 마지막 인덱스 숫자
+
+    //string extraction
+    $str2 = "Hello World!";
+    echo substr($str2,3);
+    echo substr($str2,-3);
+    echo substr($str2,1,5);
+    echo substr($str2,1,-5);
+
+    //Replacing string case
+    echo strtolower("Hello World!");
+    echo strtoupper("hello world!");
+    echo ucfirst("hello world!");
+    echo ucwords("hello world!");
+
+    //Combine and break strings
+    $str3 = "hello, beautiful, world!";
+    $array = explode(',',$str3);
+    echo $array[0];//hello
+    echo $array[1];//beautiful
+    echo $array[2];//world!
+
+    $str4 = implode('!',$array);//!기준으로 문자열을 결합
+    echo $str4;//hello! beautiful! world!
+
+    $token = strtok($str4, '!');//!기준으로 토큰화
+    echo $token;//hello
+    while($token != ""){
+        $token = strtok('!');
+        echo $token;//beautiful, world
     }
 
-    $element = end($arr);
-    while($element){
-        echo $element;
-        $element = prev($arr);
-    }
-
-    $element = end($arr);
-    while($element){
-        echo $element;
-        $element = prev($arr);
-
-    }
-
-    echo " ";
-    sort($arr);
-     $element = current($arr);
-    while($element){
-        echo $element;
-        $element = next($arr);
-
-    }
-
-    $arr2 =  array(15, 2, 1, 21, 121);
-
-    sort($arr2,SORT_NUMERIC);//숫자로 비교함
-    sort($arr2,SORT_STRING);//문자로 비교
-
-    //Associative Array Sort
-
-    $arr3 = array("apple" => 1000, "banana" => 2000, "orange" => 1500);
-    asort($arr3);//값으로 배열을 정렬 apple orange banana
-    ksort($arr3);//키 값으로 배열을 정렬 apple banana orange
-
-    //suffle($arr);//무작위 배열 정리
-
-    $arr_01 = array(1,2,3,4,5);
-    $arr_02 = array_reverse($arr_01);
-
-    for($i = 0; $i < count($arr_02); $i++){
-        echo $arr_02[$i].",";
-    }
-
+    //Replace string
+    $str5 = "hello, world!";
+    echo str_replace('o', '*', $str5);      // 문자열의 모든 'o'를 '*'로 대체함.
+    echo substr_replace($str5, '*', 2);     // 세 번째 문자부터 끝까지를 '*'로 대체함.
+    echo substr_replace($str5, '*', -2);    // 끝에서 두 번째 문자부터 끝까지를 '*'로 대체함.
+    echo substr_replace($str5, '*', 2, 4);  // 세 번째 문자부터 네 글자를 '*'로 대체함.
+    echo substr_replace($str5, '*', 2, -4); // 세 번째 문자부터 끝에서 다섯 번째 문자까지를 '*'로 대체함.
+    echo substr_replace($str5, '*', 2, 0);  // 두 번째 문자 뒤에 '*'을 삽입함.
 
 ?>
