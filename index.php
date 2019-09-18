@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <?php
-	$cookieName = "city";
-	$cookieValue = "서울";
-	setcookie($cookieName, $cookieValue, time()+60, "/");	// 쿠키가 60초 간 지속됨.
-	//PHP에서는 setcookie() 함수를 이용하여 쿠키를 생성할 수 있습니다.
+	session_start();
 ?>
 <html lang="ko">
 
@@ -14,12 +11,33 @@
 
 <body>
 
-	<p>다시 한 번 "결과보기" 버튼이나 "F5"버튼을 누르면 생성된 쿠키를 확인할 수 있습니다!</p>
+
 
 <?php
-	if(!isset($_COOKIE[$cookieName])) {		// 해당 쿠키가 존재하지 않을 때
-		echo "{$cookieName}라는 이름의 쿠키는 아직 생성되지 않았습니다.";
-	} else {								// 해당 쿠키가 존재할 때
-		echo "{$cookieName}라는 이름의 쿠키가 생성되었으며, 생성된 값은 '".$_COOKIE[$cookieName]."'입니다.";
+	//session study
+	//$_SESSION["city"] = "부산";
+	//$_SESSION["gu"] = "해운대구";
+	//echo "세션 변수가 등록되었습니다.";
+	echo "제가 살고 있는 도시는 {$_SESSION['city']}입니다.<br>";
+	echo "그 중에서도 {$_SESSION['gu']}에 살고 있습니다.<br>";//세션을 보여줌
+	print_r($_SESSION);		// 모든 세션 변수의 정보를 연관 배열 형태로 보여줌.
+
+	//특정 세션 변수의 등록 해지
+	if(isset($_SESSION["city"])){
+		echo "{$_SESSION["city"]} 세션 변수가 삭제 되었습니다.";
+		unset ($_SESSION["city"]);
+	} else {
+		echo "해당 세션에 변수가 등록되어 있지 않습니다.";
 	}
+
+
+	session_unset();//모든 세션 변수의 등록 해지
+	session_destroy();// remove session id
+	echo "모든 세션 변수가 등록 해지되었으며, 세션 아이디도 삭제되었습니다.";
 ?>
+
+
+</body>
+
+</html>
+
