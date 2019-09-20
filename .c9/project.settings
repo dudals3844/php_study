@@ -1,4 +1,7 @@
 {
+    "ace": {
+        "@useSoftTabs": true
+    },
     "build": {
         "@saveall": true
     },
