@@ -22,16 +22,28 @@ int main(){
     for(int i = 0; i < N; i++){
         click_num[i] = 0;
     }
+    int x_1,x_2,y_1,y_2;
+    for(int i = 0; i < M; i++){
+        for(int j = N-1; j >= 0; j--){
+            x_1 = getButton_address[j][0][0];
+            x_2 = getButton_address[j][0][1];
+            y_1 = getButton_address[j][1][0];
+            y_2 = getButton_address[j][1][1];
+            if(x_1 <= getclick_address[i][0] && getclick_address[i][0] <= x_2){
+                if(y_1 <= getclick_address[i][1] && getclick_address[i][1] <= y_2){
+                    click_num[j]++;
+                    break;
+                }
 
-    for(int i = N-1; i >= 0; i--){
-        for(int j = 0; j < M; j++){
-            if((getButton_address[i][0][0] <= getclick_address[j][0] <= getButton_address[i][0][1]) && (getButton_address[i][1][0] <= getclick_address[j][1] <= getButton_address[i][1][1])){
-                click_num[i]++;
+
+                //click_num[j]++;
+                //break;
             }
         }
     }
 
-    printf("%d",getButton_address[0][0][0]);
-    printf("%d",getclick_address[0][0]);
+    for(int i = 0; i < N; i++){
+        printf("Button_#%d: %d\n",i+1,click_num[i]);
+    }
     return 0;
 }
